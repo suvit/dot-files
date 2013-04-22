@@ -1,0 +1,11 @@
+[user]
+	email = vsafronovich@gmail.com
+	name = Victor Safronovich
+[github]
+	user = suvit
+[core]
+	autocrlf = input
+[alias]
+	st = status -sb
+	undo = reset --soft HEAD^
+	amend = commit --amend -C HEAD
