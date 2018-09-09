@@ -29,6 +29,7 @@ $ sudo apt-get install sublime-text
 
 # joxi
 # teamviewer?
+
 # vagrant
 $ wget https://releases.hashicorp.com/vagrant/2.1.4/vagrant_2.1.4_x86_64.deb
 $ dpkg -i vagrant_2.1.4_x86_64.deb
