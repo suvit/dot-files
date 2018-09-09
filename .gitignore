@@ -1,3 +1,13 @@
 *.py[c,o]
 *.sublime-project
 *.sublime-workspace
+
+# dotfiles from others to test
+test
+
+# ansible
+*.retry
+
+# vargant testing
+.vagrant
+remotehosts
