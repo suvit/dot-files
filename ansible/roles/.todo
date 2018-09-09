@@ -17,6 +17,7 @@ $ sudo apt-get install virtualbox-5.2
 
 # sublime
 $ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+$ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 $ sudo apt-get update
 $ sudo apt-get install sublime-text
 
@@ -28,3 +29,5 @@ $ sudo apt-get install sublime-text
 # joxi
 # teamviewer?
 # vagrant
+$ wget https://releases.hashicorp.com/vagrant/2.1.4/vagrant_2.1.4_x86_64.deb
+$ dpkg -i vagrant_2.1.4_x86_64.deb
