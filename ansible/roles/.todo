@@ -12,6 +12,7 @@ $ apt install winetricks winbind
 
 # virtualbox
 $ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+$ echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 $ sudo apt-get update
 $ sudo apt-get install virtualbox-5.2
 
