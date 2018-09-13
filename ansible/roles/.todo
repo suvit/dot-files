@@ -7,6 +7,7 @@ $ apt install winetricks winbind
 
 
 # pk
+$ WINEPRFIX=~/.wine32 winetricks vb6run
 
 # ib
 
@@ -23,8 +24,33 @@ $ sudo apt-get update
 $ sudo apt-get install sublime-text
 
 # dev
+- base
+$ apt install htop iotop
+
+- ssh keys
+$ ln -s Dropbox/lunix/.ssh
+
+- tmux
+$ apt install tmux
+
 - Установка pipenv
+pip install pipenv
+
+-- postgres
+$ apt install postgresql pgcli
+$ sudo su - postgres -c "createuser -s $USER"
+$ createuser -s odoo10
+$ # createdb -O odoo10 10_mrp
+$ # download dump and import
+
 - Установка odoo, разных версий?
+$apt install libldap2-dev libsasl2-dev
+
+-- npm less
+$ apt install npm
+$ npm install -g less
+
+-- wkhtmltopdf
 -- debug odoo plugin
 
 # joxi
