@@ -1,9 +1,9 @@
 
 # cryptdisk
-$ apt install encfs
+$ sudo apt install encfs
 
 # wine
-$ apt install winetricks winbind
+$ sudo apt install winetricks winbind
 
 
 # pk
@@ -25,30 +25,30 @@ $ sudo apt-get install sublime-text
 
 # dev
 - base
-$ apt install htop iotop
+$ sudo apt install htop iotop
 
 - ssh keys
 $ ln -s Dropbox/lunix/.ssh
 
 - tmux
-$ apt install tmux
+$ sudo apt install tmux
 
 - Установка pipenv
-pip install pipenv
+$ sudo pip install pipenv
 
 -- postgres
-$ apt install postgresql pgcli
+$ sudo apt install postgresql pgcli
 $ sudo su - postgres -c "createuser -s $USER"
 $ createuser -s odoo10
 $ # createdb -O odoo10 10_mrp
 $ # download dump and import
 
 - Установка odoo, разных версий?
-$apt install libldap2-dev libsasl2-dev
+$ sudo apt install libldap2-dev libsasl2-dev
 
 -- npm less
-$ apt install npm
-$ npm install -g less
+$ sudo apt install npm
+$ sudo npm install -g less
 
 -- wkhtmltopdf
 -- debug odoo plugin
@@ -58,4 +58,4 @@ $ npm install -g less
 
 # vagrant
 $ wget https://releases.hashicorp.com/vagrant/2.1.4/vagrant_2.1.4_x86_64.deb
-$ dpkg -i vagrant_2.1.4_x86_64.deb
+$ sudo dpkg -i vagrant_2.1.4_x86_64.deb
