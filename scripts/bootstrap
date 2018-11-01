@@ -1,7 +1,7 @@
 
 # обновить все что есть
 $ sudo apt update
-$ sudo apt upgrate
+$ sudo apt upgrade
 
 # нужен git (без настроек)
 $ sudo apt install git
