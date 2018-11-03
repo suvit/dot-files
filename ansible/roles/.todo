@@ -7,9 +7,17 @@ $ sudo apt install winetricks winbind
 
 
 # pk
-$ WINEPRFIX=~/.wine32 winetricks vb6run
+$ WINEPREFIX=~/.wine32 winetricks vb6run
 
 # ib
+- all worked
+
+# chromium
+$ sudo apt install chromium-browser
+
+# dropbox
+$ cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+$ ~/.dropbox-dist/dropboxd  # without sudo!
 
 # virtualbox
 $ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
@@ -25,7 +33,10 @@ $ sudo apt-get install sublime-text
 
 # dev
 - base
-$ sudo apt install htop iotop
+$ sudo apt install htop iotop mc
+
+- dev
+$ sudo apt install build-essential python-dev python-pip
 
 - ssh keys
 $ ln -s Dropbox/lunix/.ssh
@@ -33,8 +44,9 @@ $ ln -s Dropbox/lunix/.ssh
 - tmux
 $ sudo apt install tmux
 
-- Установка pipenv
+- Установка pipenv (virtualenv inside)
 $ sudo pip install pipenv
+$ sudo pip install -U pytz
 
 -- postgres
 $ sudo apt install postgresql pgcli
@@ -54,8 +66,9 @@ $ sudo npm install -g less
 -- debug odoo plugin
 
 # joxi
+
 # teamviewer?
 
 # vagrant
-$ wget https://releases.hashicorp.com/vagrant/2.1.4/vagrant_2.1.4_x86_64.deb
-$ sudo dpkg -i vagrant_2.1.4_x86_64.deb
+$ wget -P /tmp/ https://releases.hashicorp.com/vagrant/2.1.4/vagrant_2.1.4_x86_64.deb
+$ sudo dpkg -i /tmp/vagrant_2.1.4_x86_64.deb
