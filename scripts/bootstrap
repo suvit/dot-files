@@ -14,3 +14,7 @@ $ sudo apt install ansible
 
 # забрать этот репо
 $ git clone git://github.com/suvit/dot-files ~/dotfiles
+
+# copy configs
+$ ln -s ~/dotfiles/.gitconfig
+$ ln -s ~/dotfiles/.pypirc

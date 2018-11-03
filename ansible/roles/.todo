@@ -19,6 +19,12 @@ $ sudo apt install chromium-browser
 $ cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 $ ~/.dropbox-dist/dropboxd  # without sudo!
 
+# fix .profile
+# add local bin
+# add ssh-keys to agent
+# fix command line prefix
+# link gitconfig (and others pypi-config)
+
 # virtualbox
 $ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 $ echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
@@ -72,3 +78,9 @@ $ sudo npm install -g less
 # vagrant
 $ wget -P /tmp/ https://releases.hashicorp.com/vagrant/2.1.4/vagrant_2.1.4_x86_64.deb
 $ sudo dpkg -i /tmp/vagrant_2.1.4_x86_64.deb
+
+# system
+# purge tmp files on 30 days
+
+# vpn
+
