@@ -84,3 +84,6 @@ $ sudo dpkg -i /tmp/vagrant_2.1.4_x86_64.deb
 
 # vpn
 
+# libreoffice
+$ sudo apt-add-repository ppa:libreoffice/ppa
+$ sudo apt install libreoffice libreoffice-gnome
