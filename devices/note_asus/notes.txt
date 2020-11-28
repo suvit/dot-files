@@ -1,0 +1,7 @@
+
+
+== Вентилятор ==
+
+1. http://web.archive.org/web/20150901092438/http://www.lm-sensors.org:80/wiki/Configurations - конф файлы для sensors
+2. https://web.archive.org/web/20150408064019/http://www.lm-sensors.org:80/browser/lm-sensors/trunk/doc/fan-divisors - делители скорости вентилятора
+3. https://www.linux.org.ru/forum/linux-install/12158315 - как добавлять свой конфиг для sensors

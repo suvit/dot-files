@@ -1,0 +1,23 @@
+[user]
+	email = vsafronovich@gmail.com
+	name = Victor Safronovich
+[github]
+	user = suvit
+[core]
+	autocrlf = input
+[alias]
+	st = status -sb
+	undo = reset --soft HEAD^
+	amend = commit --amend -C HEAD
+
+[user]
+	email = vsafronovich@gmail.com
+	name = Victor Safronovicolor]
+	ui = true
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+
