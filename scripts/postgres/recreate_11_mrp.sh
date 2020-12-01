@@ -6,7 +6,7 @@ export PGPORT=65432
 DATE=${1:-`date '+%Y-%m-%d'`}
 
 dropdb --if-exists 11_mrp
-createdb -O odoo11 11_mrp
+createdb -O $USER 11_mrp
 # TODO var date
 # gunzip -c suvit_dump_pgsql_11_mrp_11.0_${DATE}.gz | ./pgdump_10_to_9.py | psql -d 11_mrp > /dev/null
 gunzip -c suvit_dump_pgsql_11_mrp_11.0_${DATE}.gz | nice psql -d 11_mrp > /dev/null

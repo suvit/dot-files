@@ -1,7 +1,7 @@
 # -d в Заднем фоне
 docker run -d \
            --name posgtresdb12 \
-           -e POSTGRES_USER=viktor \
+           -e POSTGRES_USER=$USER \
            -e POSTGRES_HOST_AUTH_METHOD=trust \
            -v /var/lib/postgresql/12-docker/main:/var/lib/postgresql/data \
            -p 127.0.0.1:65432:5432 \
