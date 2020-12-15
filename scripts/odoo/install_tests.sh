@@ -13,7 +13,7 @@ DB=${STAND}_test
 
 INSTALL_MODULE=format_mrp_menu
 INIT_MODULE=_test_format_core
-TEST_MODULE=_test_format_mrp
+TEST_MODULE=_test_format_mrp,_test_format_crm
 MODE=${1:-'install,template,test'}
 
 if grep -q "install" <<< "$MODE"; then
