@@ -5,7 +5,7 @@ export PGHOST=localhost
 export PGPORT=65432
 DATE=${1:-`date '+%Y-%m-%d'`}
 DB=$2
-DB_FULL=${3:-suvit_dump_pgsql_$DB_11.0_$DATE.gz}
+DB_FULL=${3:-suvit_dump_pgsql_${DB}_11.0_$DATE.gz}
 
 dropdb --if-exists ${DB}
 createdb -O $USER ${DB}
