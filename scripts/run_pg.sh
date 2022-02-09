@@ -1,1 +1,1 @@
-docker start posgtresdb12 
+docker start postgresdb12
