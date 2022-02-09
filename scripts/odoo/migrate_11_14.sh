@@ -7,20 +7,22 @@ script_dir=$(dirname "$BASH_SOURCE")
 export PGHOST=localhost
 export PGPORT=65432
 
+OU_ROOT=/opt/suvit/odoo/OpenUpgrade
+
+function migrate {
+    old_ver=$1
+    new_ver=$2
+
+    dropdb --if-exists ${new_ver}_mrp
+    createdb -O $USER -T ${old_ver}_mrp ${new_ver}_mrp
+
+    MIG_ROOT=$OU_ROOT/mrp-${old_ver}-${new_ver}
+    cd $MIG_ROOT
+
+    # export OPENUPGRADE_TARGET_VERSION=14.0
+    ~/dotfiles/scripts/odoo/run_odoo.sh -d ${new_ver}_mrp -u all --stop-after-init # > $MIG_ROOT/migration.log 2> $MIG_ROOT/error.log
+}
 # Исходная база 11_mrp, мигрируем ее в 14_mrp
-
-# 11 -> 12
-dropdb --if-exists 12_mrp
-createdb -O $USER -T 11_mrp 12_mrp
-
-OU_ROOT = /opt/odoo/OpenUpgrade/
-cd $OU_ROOT/mrp-11-12
-~/dotfiles/scripts/odoo/run_odoo.sh -d 12_mrp -u all --stop-after-init
-
-exit 0
-
-dropdb --if-exists 13_mrp
-createdb -O $USER -T 12_mrp 13_mrp
-
-cd $OU_ROOT/mrp-12-13
-~/dotfiles/scripts/odoo/run_odoo.sh -d 13_mrp -u all --stop-after-init
+# migrate 11 12
+# migrate 12 13
+migrate 13 14
