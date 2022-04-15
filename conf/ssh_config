@@ -1,0 +1,4 @@
+Host gitlab.suvit.ru
+     # HostName 192.168.1.100
+     User git
+     IdentityFile ~/.ssh/keys/github.com
