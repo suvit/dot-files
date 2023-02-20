@@ -23,6 +23,6 @@ function migrate {
     ~/dotfiles/scripts/odoo/run_odoo.sh -d ${new_ver}_mrp -u all --stop-after-init # > $MIG_ROOT/migration.log 2> $MIG_ROOT/error.log
 }
 # Исходная база 11_mrp, мигрируем ее в 14_mrp
-# migrate 11 12
-# migrate 12 13
+migrate 11 12
+migrate 12 13
 migrate 13 14
