@@ -5,7 +5,7 @@ script_dir=$(dirname "$BASH_SOURCE")
 # Запускать
 
 export PGHOST=localhost
-export PGPORT=65432
+export PGPORT=16432
 
 OU_ROOT=/opt/suvit/odoo/OpenUpgrade
 

@@ -2,7 +2,7 @@
 set -Eeuxo pipefail
 
 export PGHOST=localhost
-export PGPORT=65432
+export PGPORT=16432
 
 DB=14_mrp
 

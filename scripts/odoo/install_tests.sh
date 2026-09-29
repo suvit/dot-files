@@ -4,7 +4,7 @@ set -Eeuxo pipefail
 script_dir=$(dirname "$BASH_SOURCE")
 
 export PGHOST=localhost
-export PGPORT=65432
+export PGPORT=16432
 
 STAND=${ODOO_VERSION:-11}_mrp
 INSTALL=${STAND}_install

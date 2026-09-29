@@ -2,7 +2,7 @@
 set -Eeuxo pipefail
 
 export PGHOST=localhost
-export PGPORT=65432
+export PGPORT=16432
 DATE=${1:-`date '+%Y-%m-%d'`}
 DB=11_mrp
 DB_FULL=suvit_dump_pgsql_$DB_11.0_$DATE.gz
