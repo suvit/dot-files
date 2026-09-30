@@ -1,0 +1,10 @@
+{
+  "theme": "dark",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/dotfiles/claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "mattpocock-skills@claude-plugins-official": true
+  }
+}
