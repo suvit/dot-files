@@ -5,6 +5,9 @@
 #   TEST_DB      := "taxn-test"   # база по умолчанию для create/drop/recreate и test-рецептов
 #   WT_TEMPLATE  := "taxn-test"   # база-шаблон для копий в wt-create
 #   PROTECTED_DB := "taxn-test"   # список рабочих баз через пробел (dump-load их не трогает)
+#   PROD_HOST    := "prod.example.ru"  # боевой сервер (prod-log-grep, prod-sql)
+#   PROD_DB      := "prod_db"          # боевая база для prod-sql
+#   PROD_LOG     := "/home/prod/log/odoo.log"  # лог боя для prod-log-grep
 #   import '~/.config/just/suvit-odoo.just'
 #
 # Оригинал лежит в ~/dotfiles/just/, в ~/.config/just/ — симлинк на него.
@@ -342,3 +345,18 @@ check-ci:
     if apt_lines:
         sys.exit(1)
     PYEOF
+
+# Grep лога боя (PROD_LOG проекта) без «Запрос:»-простыней.
+# Время в логе — UTC. Пример: just prod-log-grep 'cannot follow twice'
+prod-log-grep pattern:
+    #!/usr/bin/env bash
+    ssh root@{{PROD_HOST}} "grep -in -- '{{pattern}}' {{PROD_LOG}} | grep -v Запрос | cut -c1-300 | tail -50"
+
+# Read-only SQL в боевую базу PROD_DB на хосте PROD_HOST: запрос выполняется
+# в READ ONLY транзакции — любой DML/DDL упадёт на стороне PG.
+# Данные для тикетов, которые закрыты ACL бота.
+# Пример: just prod-sql "SELECT id, name FROM res_partner WHERE id = 1"
+prod-sql *sql:
+    #!/usr/bin/env bash
+    query="BEGIN TRANSACTION READ ONLY; {{sql}}; ROLLBACK"
+    ssh root@{{PROD_HOST}} "sudo -u postgres psql {{PROD_DB}} -At -F' | ' -c \"${query}\""
