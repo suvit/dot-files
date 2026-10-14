@@ -256,6 +256,28 @@ wt-create name db="":
     echo "  cd $WT_DIR"
     echo "  just run-odoo              # из worktree возьмёт venv основной папки, конфиг — местный"
 
+# Наладить local.conf в существующем worktree (созданном руками или EnterWorktree,
+# без wt-create): пути → worktree, worktree первым в addons_path. Без этого
+# odoo из worktree грузит модули основного чекаута и тесты молча гоняются на чужом коде.
+# Идемпотентно: существующий local.conf правит, отсутствующий копирует из основной папки.
+# Пример: just wt-conf my_wt
+[positional-arguments]
+wt-conf name:
+    #!/usr/bin/env bash
+    set -e
+    NAME="$1"
+    WT_DIR=".claude/worktrees/$NAME"
+    WT_DIR_ABS="$PWD/$WT_DIR"
+    [ -d "$WT_DIR" ] || { echo "Нет worktree: $WT_DIR"; exit 1; }
+    [ -f local.conf ] || { echo "Нет local.conf в основной папке — нечего копировать"; exit 1; }
+    [ -f "$WT_DIR/local.conf" ] || cp local.conf "$WT_DIR/local.conf"
+    REPO_REAL="$(readlink -f .)"
+    # Замена путей только в строках, где worktree ещё не прописан (иначе задвоение хвоста)
+    sed -i "\|$WT_DIR_ABS|!s|$REPO_REAL|$WT_DIR_ABS|g" "$WT_DIR/local.conf"
+    grep -q "$WT_DIR_ABS" "$WT_DIR/local.conf" || \
+        sed -i "s|^addons_path = |addons_path = $WT_DIR_ABS,\n    |" "$WT_DIR/local.conf"
+    echo "local.conf в $WT_DIR настроен: worktree первым в addons_path"
+
 # Удалить worktree (+ копию базы, если она создавалась через wt-create).
 # Имя базы берётся из файла-флага .wt-db внутри worktree; второй аргумент задаёт базу явно
 # Примеры:
